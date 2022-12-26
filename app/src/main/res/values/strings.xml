@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Class Routine</string>
+    <string name="add_class">ADD CLASS</string>
+    <string name="teacher">Teacher</string>
+    <string name="time">Time</string>
+    <string name="class_name">Class name</string>
+</resources>
