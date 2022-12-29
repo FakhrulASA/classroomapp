@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "524655938245",
+    "project_id": "routineapp-29460",
+    "storage_bucket": "routineapp-29460.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:524655938245:android:928bafcf1e5e4bbad7beac",
+        "android_client_info": {
+          "package_name": "com.fakhrulasa.classroutine"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "524655938245-85d4mu2iukcmksp1ilpthj98bpbfue4h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBneaH4iB_JZjzWXXbTPhPa-dMYTBRatwM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "524655938245-85d4mu2iukcmksp1ilpthj98bpbfue4h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
