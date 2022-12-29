@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
         supportActionBar.apply {
-            this!!.title = "Hello"
+            this!!.title = "Registration"
             this.setDisplayHomeAsUpEnabled(true)
         }
 
