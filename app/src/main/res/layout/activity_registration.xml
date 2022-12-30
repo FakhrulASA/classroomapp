@@ -5,7 +5,7 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".RegistrationActivity">
 
 
     <com.google.android.material.progressindicator.LinearProgressIndicator
@@ -88,6 +88,17 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 
+    <TextView
+        android:id="@+id/buttonLoginPage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp"
+        android:text="Already Registered?"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="?colorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/second" />
     <Button
         android:id="@+id/button"
         style="@style/Widget.MaterialComponents.Button"
