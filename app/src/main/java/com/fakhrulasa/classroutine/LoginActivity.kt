@@ -22,27 +22,30 @@ class LoginActivity : AppCompatActivity() {
 
         supportActionBar.apply {
             this!!.title = "Login"
-            this.setDisplayHomeAsUpEnabled(true)
+           // this.setDisplayHomeAsUpEnabled(true)
         }
         auth = FirebaseAuth.getInstance();
 
         binding.buttonLogin.setOnClickListener {
-            binding.progressHorizontal.visibility = View.VISIBLE
-            auth.signInWithEmailAndPassword(
-                binding.email.text.toString(),
-                binding.password.text.toString()
-            ).addOnCompleteListener(this) { task ->
-                binding.progressHorizontal.visibility = View.INVISIBLE
-                if (task.isSuccessful) {
-                    Toast.makeText(this,"Login Successfully", Toast.LENGTH_SHORT).show()
-                    val user = auth.currentUser
-                    mainIntent.putExtra("info",
-                        "Login Successful for "+
-                         binding.email.text.toString().split("@")[0])
-                    startActivity(mainIntent)
-                } else {
-                    Toast.makeText(this,task.exception.toString(), Toast.LENGTH_SHORT).show()
+            if(binding.email.text.toString().isNotBlank() && binding.password.text.toString().isNotBlank())
+            {
+                binding.progressHorizontal.visibility = View.VISIBLE
+                auth.signInWithEmailAndPassword(
+                    binding.email.text.toString(),
+                    binding.password.text.toString()
+                ).addOnCompleteListener(this) { task ->
+                    binding.progressHorizontal.visibility = View.INVISIBLE
+                    if (task.isSuccessful) {
+                        Toast.makeText(this,"Login Successfully", Toast.LENGTH_SHORT).show()
+                        val user = auth.currentUser
+                        startActivity(mainIntent)
+                    } else {
+                        Toast.makeText(this,task.exception.toString(), Toast.LENGTH_SHORT).show()
+                    }
                 }
+            }
+            else {
+                Toast.makeText(this,"Can't be empty.", Toast.LENGTH_SHORT).show()
             }
         }
         binding.buttonRegPage.paint?.isUnderlineText = true
@@ -55,9 +58,6 @@ class LoginActivity : AppCompatActivity() {
         super.onStart()
         val currentUser = auth.currentUser
         if(currentUser != null){
-            mainIntent.putExtra("info",
-                "Login Successful for "+
-                currentUser.email!!.split("@")[0])
             startActivity(mainIntent)
         }
     }
