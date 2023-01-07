@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.fakhrulasa.classroutine">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -16,17 +16,27 @@
         android:theme="@style/Theme.ClassRoutine"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity2"
+            android:name=".AddClassActivity"
+            android:parentActivityName=".RoutineActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
-            android:exported="true"
-            android:theme="@style/Theme.ClassRoutine">
+            android:name=".LoginActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".RoutineActivity"
+            android:parentActivityName=".LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegistrationActivity"
+            android:parentActivityName=".LoginActivity"
+            android:exported="true"
+            android:theme="@style/Theme.ClassRoutine" />
     </application>
 
 </manifest>

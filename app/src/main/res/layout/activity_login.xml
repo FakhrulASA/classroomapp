@@ -2,20 +2,18 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
+    tools:context=".LoginActivity">
 
     <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progress_horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:id="@+id/progress_horizontal"
         android:indeterminate="true"
         android:visibility="gone"
-        app:indicatorColor="#651FFF"
+        app:boxStrokeColor="?colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,14 +22,16 @@
         android:id="@+id/imageView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:alpha="0.3"
+        android:alpha="0.1"
         android:contentDescription="@string/class_name"
         android:scaleType="centerCrop"
         android:src="@drawable/class_image"
+        android:tintMode="add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/primaryZ" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
@@ -42,17 +42,18 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         android:hint="Email"
-        app:hintEnabled="true"
+        app:boxStrokeColor="?colorPrimary"
         app:boxStrokeWidth="3dp"
+        app:hintEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
-        app:boxStrokeColor="@color/purple_500"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/email"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -72,30 +73,58 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         android:hint="Password"
-        app:boxStrokeColor="@color/purple_500"
+        app:boxStrokeColor="?colorPrimary"
         app:boxStrokeWidth="3dp"
         app:hintEnabled="true"
-        app:passwordToggleEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+        app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/password"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
 
-
-    <Button
-        android:id="@+id/button"
-        style="@style/Widget.MaterialComponents.Button"
+    <TextView
+        android:id="@+id/buttonRegPage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="25dp"
+        android:text="Want to create a new account?"
+        android:textColor="?colorPrimary"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/second" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        app:cardCornerRadius="12dp"
         android:layout_marginBottom="24dp"
-        android:text="Register Now"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintStart_toStartOf="@+id/guideline2" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/buttonLogin"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginStart="-7dp"
+            android:layout_marginTop="-7dp"
+            android:layout_marginEnd="-7dp"
+            android:layout_marginBottom="-7dp"
+            android:text="Login"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+
+            />
+    </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
