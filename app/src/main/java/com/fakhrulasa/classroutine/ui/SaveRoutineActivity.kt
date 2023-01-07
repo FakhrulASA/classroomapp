@@ -1,12 +1,15 @@
-package com.fakhrulasa.classroutine
+package com.fakhrulasa.classroutine.ui
 
 import android.icu.util.Calendar
 import android.os.Build
 import android.os.Bundle
 import android.view.View
+import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.fakhrulasa.classroutine.databinding.ActivitySaveRoutineBinding
+import com.fakhrulasa.classroutine.model.AddNoteModel
+import com.fakhrulasa.classroutine.viewmodel.AddNoteViewModel
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog
@@ -18,7 +21,7 @@ class SaveRoutineActivity : AppCompatActivity(), TimePickerDialog.OnTimeSetListe
     val db = Firebase.firestore
 
     private lateinit var binding: ActivitySaveRoutineBinding
-
+    private val vm : AddNoteViewModel by viewModels()
     @RequiresApi(Build.VERSION_CODES.N)
     var now: Calendar = Calendar.getInstance()
 
@@ -37,29 +40,26 @@ class SaveRoutineActivity : AppCompatActivity(), TimePickerDialog.OnTimeSetListe
         val view = binding.root
         setContentView(view)
 
-        var classObject = HashMap<String, String>()
         binding.tvClassTime.setOnClickListener {
             dpd.show(supportFragmentManager, "Select your class time")
         }
 
         binding.button2.setOnClickListener {
             binding.progressBar.visibility = View.VISIBLE
-            classObject["Class Name"] = binding.etClassName.text.toString()
-            classObject["Class Time"] = binding.tvClassTime.text.toString()
-            classObject["Teacher Name"] = binding.etTeacherName.text.toString()
 
-            db.collection("Class")
-                .add(classObject)
-                .addOnSuccessListener { documentReference ->
-                    binding.progressBar.visibility = View.GONE
+            val classN = binding.etClassName.text.toString()
+            val classT = binding.tvClassTime.text.toString()
+            val teacherN = binding.etTeacherName.text.toString()
 
-                    showToastMessage(this, "Saved");
-                }
-                .addOnFailureListener { e ->
-                    binding.progressBar.visibility = View.GONE
-
-                    showToastMessage(this, e.message.toString())
-                }
+            vm.saveNote(AddNoteModel(
+                classN,classT,teacherN
+            ),{
+                binding.progressBar.visibility = View.GONE
+              showToastMessage(this, it)
+            },{
+                binding.progressBar.visibility = View.GONE
+                showToastMessage(this, it)
+            })
         }
     }
 

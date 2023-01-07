@@ -1,4 +1,4 @@
-package com.fakhrulasa.classroutine
+package com.fakhrulasa.classroutine.ui
 
 import android.content.Context
 import android.widget.Toast
