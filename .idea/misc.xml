@@ -3,9 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/CHOTU/AndroidStudioProjects/ClassRoutine/app/src/main/res/drawable-v24/rounded_background_buttonm.xml" value="0.3065" />
         <entry key="..\:/Users/CHOTU/AndroidStudioProjects/ClassRoutine/app/src/main/res/drawable/ic_baseline_info_24.xml" value="0.3845" />
+        <entry key="..\:/Users/CHOTU/AndroidStudioProjects/ClassRoutine/app/src/main/res/drawable/rounded_background.xml" value="0.3065" />
         <entry key="..\:/Users/CHOTU/AndroidStudioProjects/ClassRoutine/app/src/main/res/layout/activity_main.xml" value="0.5578125" />
         <entry key="..\:/Users/CHOTU/AndroidStudioProjects/ClassRoutine/app/src/main/res/layout/activity_main2.xml" value="0.3140625" />
+        <entry key="..\:/Users/CHOTU/AndroidStudioProjects/ClassRoutine/app/src/main/res/layout/activity_save_routine.xml" value="0.41302083333333334" />
       </map>
     </option>
   </component>
